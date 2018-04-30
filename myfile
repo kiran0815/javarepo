@@ -1,26 +1,24 @@
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Scanner;
+package batch1;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.ie.InternetExplorerDriver;
 
-public class URLExpSimple {
+public class Locators {
 
-    
-    public static void main(String[] args) {
-        try {
-            URL mySite = new URL("http://www.cs.utexas.edu/~scottm");
-            URLConnection yc = mySite.openConnection();
-            Scanner in = new Scanner(new InputStreamReader(yc.getInputStream()));
-            int count = 0;
-            while (in.hasNext()) {
-                System.out.println(in.next());
-                count++;
-            }
-            System.out.println("Number of tokens: " + count);
-            in.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	System.setProperty("webdriver.chrome.driver","E:\\chromedriver.exe");
+    WebDriver driver = new ChromeDriver();
+    driver.get("http://automationpractice.com/index.php");
+//driver.manage().window().maximize();
+//driver.findElement(By.className("login")).click();
+   driver.findElement(By.linkText("Sign in")).click();
+   driver.findElement(By.name("email")).click();
+		//int size=driver.findElement(By.tagName("a")).size();
+		//System.out.println(size);
+		
+
+	}
 }
